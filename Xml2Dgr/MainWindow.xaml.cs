@@ -463,7 +463,7 @@ namespace Xml2Dgr
                     template = template.Append(
                                         $"<GOtpr IdVidOtpr=\"32\" Num=\"-1\" />\r\n" +
                                         $"<FLObj DtStart=\"\" DtEnd=\"\" Num=\"-1\" IdVidObj=\"303\">\r\n" +
-                                            $"<FL FamFL=\"{notarius.LastName}\" NameFL=\"{notarius.FirstName}\" OtchFL=\"{notarius.MiddleName}\" INN=\"{notarius.INN}\" IdDokFL=\"21\" NumDok=\"\" DtDok=\"{notarius.Date}\" NameOrg=\"{notarius.IssuerOrgan}\" KodOrg=\"{notarius.KodOrg}\" Birthday=\"{notarius.BirthDate}\" Birthplace=\"{notarius.BirthPlace}\" />\r\n" +
+                                            $"<FL FamFL=\"{notarius.LastName}\" NameFL=\"{notarius.FirstName}\" OtchFL=\"{notarius.MiddleName}\" INN=\"{notarius.INN}\" IdDokFL=\"\" NumDok=\"\" DtDok=\"{notarius.Date}\" NameOrg=\"{notarius.IssuerOrgan}\" KodOrg=\"{notarius.KodOrg}\" Birthday=\"{notarius.BirthDate}\" Birthplace=\"{notarius.BirthPlace}\" />\r\n" +
                                         $"</FLObj>\r\n" +
                                         $"<ContactObj DtStart=\"\" DtEnd=\"\" Num=\"-1\" IdVidObj=\"303\">\r\n" +
                                             $"<Contact Telefon=\"{ValidatePhoneNumber(notarius.Phone)}\" EMail=\"{notarius.Email}\" />\r\n" +
