@@ -701,7 +701,7 @@ namespace Xml2Dgr
             if (sender is hc.ComboBox cb) // получаем комбобокс, который вызвал событие
             {
                 int.TryParse(cb.Tag.ToString(), out int cbTag);
-                System.Windows.MessageBox.Show(cb.SelectedIndex.ToString());
+                //System.Windows.MessageBox.Show(cb.SelectedIndex.ToString());
                 founders[cbTag].IdStatus = cb.SelectedIndex + 1;
             }
         }
