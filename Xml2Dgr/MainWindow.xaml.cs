@@ -389,8 +389,8 @@ namespace Xml2Dgr
                     hc.TitleElement.SetTitle(cb, $"{founders[i].LastName} {founders[i].FirstName} {founders[i].MiddleName}");
 
                     cb.Items.Add("Возникновение прав участника/учредителя");
-                    cb.Items.Add("Прекращение прав участника/учредителя");
                     cb.Items.Add("Изменение сведений об участнике/учредителе");
+                    cb.Items.Add("Прекращение прав участника/учредителя");
                     cb.SelectedIndex = 0;
 
                     cb.SelectionChanged += ComboBox_SelectionChanged; // подписываемся на событие
@@ -458,12 +458,12 @@ namespace Xml2Dgr
                 // Добавляем нотариуса\врио как заявителя
                 if (applicant)
                 {
-                    series = Regex.Replace(notarius.Series, @"(.{2})", "$1 ");
-
+                    //series = Regex.Replace(notarius.Series, @"(.{2})", "$1 ");
+                    //{series}{notarius.Number}
                     template = template.Append(
                                         $"<GOtpr IdVidOtpr=\"32\" Num=\"-1\" />\r\n" +
                                         $"<FLObj DtStart=\"\" DtEnd=\"\" Num=\"-1\" IdVidObj=\"303\">\r\n" +
-                                            $"<FL FamFL=\"{notarius.LastName}\" NameFL=\"{notarius.FirstName}\" OtchFL=\"{notarius.MiddleName}\" INN=\"{notarius.INN}\" IdDokFL=\"21\" NumDok=\"{series}{notarius.Number}\" DtDok=\"{notarius.Date}\" NameOrg=\"{notarius.IssuerOrgan}\" KodOrg=\"{notarius.KodOrg}\" Birthday=\"{notarius.BirthDate}\" Birthplace=\"{notarius.BirthPlace}\" />\r\n" +
+                                            $"<FL FamFL=\"{notarius.LastName}\" NameFL=\"{notarius.FirstName}\" OtchFL=\"{notarius.MiddleName}\" INN=\"{notarius.INN}\" IdDokFL=\"21\" NumDok=\"\" DtDok=\"{notarius.Date}\" NameOrg=\"{notarius.IssuerOrgan}\" KodOrg=\"{notarius.KodOrg}\" Birthday=\"{notarius.BirthDate}\" Birthplace=\"{notarius.BirthPlace}\" />\r\n" +
                                         $"</FLObj>\r\n" +
                                         $"<ContactObj DtStart=\"\" DtEnd=\"\" Num=\"-1\" IdVidObj=\"303\">\r\n" +
                                             $"<Contact Telefon=\"{ValidatePhoneNumber(notarius.Phone)}\" EMail=\"{notarius.Email}\" />\r\n" +
@@ -532,22 +532,22 @@ namespace Xml2Dgr
         {
             if (!string.IsNullOrWhiteSpace(txtFIO.Text) &&
                 !string.IsNullOrWhiteSpace(txtINN.Text) &&
-                !string.IsNullOrWhiteSpace(txtBirthDate.Text) &&
-                !string.IsNullOrWhiteSpace(txtBirthPlace.Text) &&
-                !string.IsNullOrWhiteSpace(txtPassport.Text) &&
-                !string.IsNullOrWhiteSpace(txtPassportDate.Text) &&
-                !string.IsNullOrWhiteSpace(txtIssuerOrgan.Text) &&
-                !string.IsNullOrWhiteSpace(txtKodOrg.Text) &&
+                //!string.IsNullOrWhiteSpace(txtBirthDate.Text) &&
+                //!string.IsNullOrWhiteSpace(txtBirthPlace.Text) &&
+                //!string.IsNullOrWhiteSpace(txtPassport.Text) &&
+                //!string.IsNullOrWhiteSpace(txtPassportDate.Text) &&
+                //!string.IsNullOrWhiteSpace(txtIssuerOrgan.Text) &&
+                //!string.IsNullOrWhiteSpace(txtKodOrg.Text) &&
                 !string.IsNullOrWhiteSpace(txtEmail.Text) &&
                 !string.IsNullOrWhiteSpace(txtPhone.Text)
                 )
             {
                 // добавляем нового пользователя в список
-                string passport = txtPassport.Text.Replace(" ", "").Replace("-", "");
-                if (string.IsNullOrWhiteSpace(passport) || passport.Length < 8) { System.Windows.MessageBox.Show("Проверьте правильность введенных серии и номера паспорта (формат: 1234 123456)"); return; }
+                //string passport = txtPassport.Text.Replace(" ", "").Replace("-", "");
+                //if (string.IsNullOrWhiteSpace(passport) || passport.Length < 8) { System.Windows.MessageBox.Show("Проверьте правильность введенных серии и номера паспорта (формат: 1234 123456)"); return; }
                 if (ValidateFIO(txtFIO.Text)) { System.Windows.MessageBox.Show("Проверьте правильность введенных ФИО"); return; }
-                string passport_series = passport.Substring(0, 4);
-                string passport_number = passport.Substring(4);
+                //string passport_series = passport.Substring(0, 4);
+                //string passport_number = passport.Substring(4);
 
                 if (btnNewEdit.Content.Equals("Добавить"))
                 {
@@ -557,13 +557,13 @@ namespace Xml2Dgr
                         FirstName = txtFIO.Text.Split()[1],
                         MiddleName = txtFIO.Text.Split()[2],
                         INN = txtINN.Text,
-                        BirthDate = txtBirthDate.Text,
-                        BirthPlace = txtBirthPlace.Text,
-                        Series = passport_series,
-                        Number = passport_number,
-                        Date = txtPassportDate.Text,
-                        IssuerOrgan = txtIssuerOrgan.Text,
-                        KodOrg = txtKodOrg.Text,
+                        //BirthDate = txtBirthDate.Text,
+                        //BirthPlace = txtBirthPlace.Text,
+                        //Series = passport_series,
+                        //Number = passport_number,
+                        //Date = txtPassportDate.Text,
+                        //IssuerOrgan = txtIssuerOrgan.Text,
+                        //KodOrg = txtKodOrg.Text,
                         Email = txtEmail.Text,
                         Phone = txtPhone.Text
                     });
@@ -578,13 +578,13 @@ namespace Xml2Dgr
                     (UsersView.SelectedItem as Person).FirstName = txtFIO.Text.Split()[1];
                     (UsersView.SelectedItem as Person).MiddleName = txtFIO.Text.Split()[2];
                     (UsersView.SelectedItem as Person).INN = txtINN.Text;
-                    (UsersView.SelectedItem as Person).BirthDate = txtBirthDate.Text;
-                    (UsersView.SelectedItem as Person).BirthPlace = txtBirthPlace.Text;
-                    (UsersView.SelectedItem as Person).Series = passport_series;
-                    (UsersView.SelectedItem as Person).Number = passport_number;
-                    (UsersView.SelectedItem as Person).Date = txtPassportDate.Text;
-                    (UsersView.SelectedItem as Person).IssuerOrgan = txtIssuerOrgan.Text;
-                    (UsersView.SelectedItem as Person).KodOrg = txtKodOrg.Text;
+                    //(UsersView.SelectedItem as Person).BirthDate = txtBirthDate.Text;
+                    //(UsersView.SelectedItem as Person).BirthPlace = txtBirthPlace.Text;
+                    //(UsersView.SelectedItem as Person).Series = passport_series;
+                    //(UsersView.SelectedItem as Person).Number = passport_number;
+                    //(UsersView.SelectedItem as Person).Date = txtPassportDate.Text;
+                    //(UsersView.SelectedItem as Person).IssuerOrgan = txtIssuerOrgan.Text;
+                    //(UsersView.SelectedItem as Person).KodOrg = txtKodOrg.Text;
                     (UsersView.SelectedItem as Person).Email = txtEmail.Text;
                     (UsersView.SelectedItem as Person).Phone = txtPhone.Text;
                 }
@@ -661,7 +661,7 @@ namespace Xml2Dgr
                 case 3:
                     System.Windows.Forms.SaveFileDialog dialog = new System.Windows.Forms.SaveFileDialog
                     {
-                        FileName = DateTime.Now.ToString("dd.mm.yyyy HH.mm"),
+                        FileName = DateTime.Now.ToString("dd.MM.yyyy HH.mm"),
                         AddExtension = true,
                         Filter = "*.dg2|*.dg2"
                     };
@@ -686,12 +686,12 @@ namespace Xml2Dgr
         {
             txtFIO.Text = "";
             txtINN.Text = "";
-            txtBirthDate.Text = "";
-            txtBirthPlace.Text = "";
-            txtPassport.Text = "";
-            txtPassportDate.Text = "";
-            txtIssuerOrgan.Text = "";
-            txtKodOrg.Text = "";
+            //txtBirthDate.Text = "";
+            //txtBirthPlace.Text = "";
+            //txtPassport.Text = "";
+            //txtPassportDate.Text = "";
+            //txtIssuerOrgan.Text = "";
+            //txtKodOrg.Text = "";
             txtEmail.Text = "";
             txtPhone.Text = "";
         }
@@ -701,6 +701,7 @@ namespace Xml2Dgr
             if (sender is hc.ComboBox cb) // получаем комбобокс, который вызвал событие
             {
                 int.TryParse(cb.Tag.ToString(), out int cbTag);
+                System.Windows.MessageBox.Show(cb.SelectedIndex.ToString());
                 founders[cbTag].IdStatus = cb.SelectedIndex + 1;
             }
         }
@@ -730,12 +731,12 @@ namespace Xml2Dgr
                 btnNewEdit.Content = "Изменить";
                 txtFIO.Text = $"{(UsersView.SelectedItem as Person).LastName} {(UsersView.SelectedItem as Person).FirstName} {(UsersView.SelectedItem as Person).MiddleName}";
                 txtINN.Text = (UsersView.SelectedItem as Person).INN;
-                txtBirthDate.Text = (UsersView.SelectedItem as Person).BirthDate;
-                txtBirthPlace.Text = (UsersView.SelectedItem as Person).BirthPlace;
-                txtPassport.Text = $"{(UsersView.SelectedItem as Person).Series} {(UsersView.SelectedItem as Person).Number}";
-                txtPassportDate.Text = (UsersView.SelectedItem as Person).Date;
-                txtIssuerOrgan.Text = (UsersView.SelectedItem as Person).IssuerOrgan;
-                txtKodOrg.Text = (UsersView.SelectedItem as Person).KodOrg;
+                //txtBirthDate.Text = (UsersView.SelectedItem as Person).BirthDate;
+                //txtBirthPlace.Text = (UsersView.SelectedItem as Person).BirthPlace;
+                //txtPassport.Text = $"{(UsersView.SelectedItem as Person).Series} {(UsersView.SelectedItem as Person).Number}";
+                //txtPassportDate.Text = (UsersView.SelectedItem as Person).Date;
+                //txtIssuerOrgan.Text = (UsersView.SelectedItem as Person).IssuerOrgan;
+                //txtKodOrg.Text = (UsersView.SelectedItem as Person).KodOrg;
                 txtEmail.Text = (UsersView.SelectedItem as Person).Email;
                 txtPhone.Text = (UsersView.SelectedItem as Person).Phone;
             }

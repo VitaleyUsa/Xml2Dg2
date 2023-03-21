@@ -58,13 +58,13 @@
                                         <hc:TextBox x:Name="txtFIO" hc:InfoElement.Title="Фамилия Имя Отчество" hc:InfoElement.Placeholder="Иванов Иван Иванович"  PreviewTextInput="FIOTextBox_PreviewTextInput" />
                                         <hc:TextBox x:Name="txtINN" hc:InfoElement.Title="ИНН" hc:InfoElement.Placeholder="ххххххххх" PreviewTextInput="INNTextBox_PreviewTextInput" TextChanged="INNTextBox_TextChanged" />
                                         <!--<hc:TextBox x:Name="txtBirthDate" hc:InfoElement.Title="Дата рождения" hc:InfoElement.Placeholder="хх.хх.хххх" />-->
-                                        <hc:DatePicker x:Name="txtBirthDate" hc:InfoElement.Placeholder="Выберите дату вашего рождения" hc:InfoElement.Title="Дата рождения" ShowClearButton="True" />
+                                        <!--<hc:DatePicker x:Name="txtBirthDate" hc:InfoElement.Placeholder="Выберите дату вашего рождения" hc:InfoElement.Title="Дата рождения" ShowClearButton="True" />
                                         <hc:TextBox x:Name="txtBirthPlace" hc:InfoElement.Title="Место рождения" hc:InfoElement.Placeholder="" />
-                                        <hc:TextBox x:Name="txtPassport" hc:InfoElement.Title="Серия и номер паспорта" hc:InfoElement.Placeholder="xxxx xxxxxx" PreviewTextInput="PassportTextBox_PreviewTextInput" TextChanged="PassportTextBox_TextChanged" />
+                                        <hc:TextBox x:Name="txtPassport" hc:InfoElement.Title="Серия и номер паспорта" hc:InfoElement.Placeholder="xxxx xxxxxx" PreviewTextInput="PassportTextBox_PreviewTextInput" TextChanged="PassportTextBox_TextChanged" />-->
                                         <!--<hc:TextBox x:Name="txtPassportDate" hc:InfoElement.Title="Дата выдачи" hc:InfoElement.Placeholder="xx.xx.xxxx" />-->
-                                        <hc:DatePicker x:Name="txtPassportDate" hc:InfoElement.Placeholder="Выберите дату выдачи паспорта" hc:InfoElement.Title="Дата выдачи" ShowClearButton="True" />
+                                        <!--<hc:DatePicker x:Name="txtPassportDate" hc:InfoElement.Placeholder="Выберите дату выдачи паспорта" hc:InfoElement.Title="Дата выдачи" ShowClearButton="True" />
                                         <hc:TextBox x:Name="txtIssuerOrgan" hc:InfoElement.Title="Кем выдан" hc:InfoElement.Placeholder="Адрес выдачи паспорта" />
-                                        <hc:TextBox x:Name="txtKodOrg" hc:InfoElement.Title="Код подразделения" hc:InfoElement.Placeholder="xxx-xxx или xxxxxx" PreviewTextInput="KodOrgTextBox_PreviewTextInput" TextChanged="KodOrgTextBox_TextChanged" />
+                                        <hc:TextBox x:Name="txtKodOrg" hc:InfoElement.Title="Код подразделения" hc:InfoElement.Placeholder="xxx-xxx или xxxxxx" PreviewTextInput="KodOrgTextBox_PreviewTextInput" TextChanged="KodOrgTextBox_TextChanged" />-->
                                         <hc:TextBox x:Name="txtEmail" hc:InfoElement.Title="Электронная почта" hc:InfoElement.Placeholder="ваша_почта@xxxx.ru" />
                                         <hc:TextBox x:Name="txtPhone" hc:InfoElement.Title="Телефонный номер" hc:InfoElement.Placeholder="+7хххххххххх" PreviewTextInput="PhoneTextBox_PreviewTextInput" />
                                         <Button x:Name="btnNewEdit" Content="Добавить" Width="75" Click="AddUserButton_Click" />
